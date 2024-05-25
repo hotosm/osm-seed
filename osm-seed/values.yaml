@@ -74,6 +74,8 @@ db:
     POSTGRES_DB: openstreetmap
     POSTGRES_USER: postgres
     POSTGRES_PASSWORD: 1234
+    LOG_STATEMENT: "all"
+    # LOG_STATEMENT=all, ddl, mod
   persistenceDisk:
     enabled: false
     mountPath: /var/lib/postgresql/data
@@ -126,6 +128,8 @@ web:
     OAUTH_KEY: "xyz"
     ORGANIZATION_NAME: "OSMSeed"
     WEBSITE_STATUS: "online"
+    API_TIMEOUT: 30
+    WEB_TIMEOUT: 30
   resources:
     enabled: false
     requests:
