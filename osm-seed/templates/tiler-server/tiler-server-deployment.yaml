@@ -35,7 +35,7 @@ spec:
             httpGet:
               path: /
               port: {{ .Values.tilerServer.env.TILER_SERVER_PORT }}
-            initialDelaySeconds: 1500
+            initialDelaySeconds: 1000
             timeoutSeconds: 30
           {{- if .Values.tilerServer.resources.enabled }}
           resources:
@@ -49,6 +49,8 @@ spec:
           envFrom:
           - configMapRef:
               name: {{ .Release.Name }}-tiler-server-cm
+          - configMapRef:
+              name: {{ .Release.Name }}-tiler-db-cm
       {{- if .Values.tilerServer.nodeSelector.enabled }}
       nodeSelector:
         {{ .Values.tilerServer.nodeSelector.label_key }} : {{ .Values.tilerServer.nodeSelector.label_value }}
