@@ -135,6 +135,20 @@ spec:
             # you done need to set this values.yaml in case you don't use
             - name: BACKUP_FILE_URL
               value: {{ .Values.web.env.BACKUP_FILE_URL | default "none" | quote }}
+            - name: RAILS_CREDENTIALS_YML_ENC
+              value: {{ .Values.web.env.RAILS_CREDENTIALS_YML_ENC | quote }}
+            - name: RAILS_MASTER_KEY
+              value: {{ .Values.web.env.RAILS_MASTER_KEY | quote }}
+            - name: RAILS_ENV
+              value: {{ .Values.web.env.RAILS_ENV | quote }}
+            - name: RAILS_LOG_LEVEL
+              value: {{ .Values.web.env.RAILS_LOG_LEVEL | default "info" | quote }}
+            - name: RAILS_STORAGE_SERVICE
+              value: {{ .Values.web.env.RAILS_STORAGE_SERVICE | default "local" | quote }}
+            - name: RAILS_STORAGE_REGION
+              value: {{ .Values.web.env.RAILS_STORAGE_REGION | quote }}
+            - name: RAILS_STORAGE_BUCKET
+              value: {{ .Values.web.env.RAILS_STORAGE_BUCKET | quote }}
           volumeMounts:
             - mountPath: /dev/shm
               name: shared-memory
